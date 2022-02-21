@@ -7,6 +7,7 @@
 2. troubleshoot
   set *
   findLast *
+  inSort *
  */
 
 
@@ -112,10 +113,29 @@ public class LinkedList implements List {
   public boolean bubbleIns  ( double elt ) {
     //See List.java for a description of the method's behavior and examples.
     //Hint: Do any of the methods already provided to you help?
+    //use contains
+    Node current = head;
+
+    if (contains(elt)) {
+      //remove element
+      for (int i = 0; i < this.size - 1; i++) {
+        //when you come across the place in the list with the element,
+        //set location equal to the index of that place
+        if (current.getValue() == elt) {
+          //remove item from list
+          rem(i);
+          ins(0, elt);
+          return true;
+        }
+      }
+    } //and if it doesn't contain the element,
+    ins(0, elt); return true;
+
+    /*
     Node current = head;
     int location = -1;
     //from 0 to one less than size,
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size-1; i++) {
       //when you come across the place in the list with the element,
       //set location equal to the index of that place
       if (current.getValue() == elt) {

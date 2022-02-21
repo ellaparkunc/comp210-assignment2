@@ -165,16 +165,38 @@ double[] hello = {10.0, 12.2, 60, 111.1, 80};
       System.out.println(ls.find(n));
       return;
    }
-    public void inSort (List ls) {
-        System.out.println("== Test of clear op =========");
-        System.out.println(ls.size());
-        double n = ls.get(0);
-        System.out.println(ls.find(n));
-        ls.clear();
-        System.out.println(ls.size());
-        System.out.println(ls.get(0));
-        System.out.println(ls.get(100));
-        System.out.println(ls.find(n));
-        return;
-    }
+    /*
+    public boolean inSort ( double elt ) {
+
+        if (this.size == 0) {
+            ins(0, elt);
+            return true;
+        }
+
+        if (elt < head.getValue()) {
+            ins(0, elt); return true;
+        }
+
+        Node current = head;
+        int index = -1;
+
+        for (int j = 0; j < this.size-1; j++) {
+            //if the element is in between,
+            if (current.getValue() < elt && current.getNext().getValue() >= elt) {
+                //insert the node after the 'current' value
+                //ins(j + 1, elt);
+                ins(j+1, elt);
+                return true;
+            }
+            current = current.getNext();
+        }
+
+        if (current.getValue() > tail.getValue()) {
+            ins(this.size-1, elt);
+            return true;
+        }
+
+        return false;  //Remove this when you implement the method!
+    } */
 }
+
