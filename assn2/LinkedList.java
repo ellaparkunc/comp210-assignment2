@@ -73,6 +73,10 @@ public class LinkedList implements List {
     //See List.java for a description of the method's behavior and examples.
 
     /*Your code here */
+    if (this.size == 0) {
+      ins(0, elt);
+      return true;
+    }
     //start node at the beginning
     Node current = head;
     int index = -1;
@@ -80,8 +84,8 @@ public class LinkedList implements List {
     //save j as min
     //save j+1 as max
     //compare elt to both
-    if (current.getValue() <= head.getValue()) {
-      current.setValue(elt);
+    if (elt < head.getValue()) {
+      ins(0, elt); return true;
     }
     //i want my question if code to run again for every next value
     //that's why outside of my question i go to the next current value till i get to the last one
