@@ -126,7 +126,7 @@ public class LinkedList implements List {
           rem(i);
           ins(0, elt);
           return true;
-        }
+        } current = current.getNext();
       }
     } //and if it doesn't contain the element,
     ins(0, elt); return true;
