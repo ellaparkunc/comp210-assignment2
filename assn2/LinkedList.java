@@ -1,3 +1,11 @@
+/*
+1.  write versions of all the functions
+  set *
+  findLast *
+
+2. troubleshoot
+ */
+
 
 package assn2;
 
@@ -21,15 +29,41 @@ public class LinkedList implements List {
       //Hint: Remember that we start indexing with 0 rather than 1.
 
       /*Your code here */
-      return false;  //Remove this when you implement the method!
+    //this.elts[index] = elt;
+    //this.size++;
+      //this.elt[index] = element;
+      Node current = head;
+      //if linked list has no values return false
+      if (index<0 || index>this.size) { return false; }
+      //iterate through the list
+      for (int i = 0; i<this.size; i++) {
+        if (index == i) {
+          current.setValue(element);
+          return true;
+        } else {
+          //if not the index we're looking for, try the next node
+          current = current.getNext();
+        }
+      }
+      return false;
+      //otherwise, move pointer to next value and see if new i relates to my index
+  //Remove this when you implement the method!
   }
       
   public int findLast ( double element ) {
     //See List.java for a description of the method's behavior and examples.
     //Hint: Make sure you understand how this is different from find
-
-    /*Your code here */
-    return -1;  //Remove this when you implement the method!
+    //do i have to do get previous?
+    Node current = head;
+    int index = -1;
+    //set index at the element but before returning see if there are any more
+      for (int i = 0; i<this.size; i++) {
+        if (current.getValue() == element) {
+          index = i;
+        }
+        current = current.getNext();
+      }
+    return index;
   }
 
   public boolean inSort ( double elt ) {
@@ -59,6 +93,7 @@ public class LinkedList implements List {
     Node current = head;
     while(current != null) {
       if(current.getValue() == element) { return true; }
+      //go to the next node
       current = current.getNext();
     }
     return false;
@@ -99,12 +134,17 @@ public class LinkedList implements List {
   }
     
   public boolean ins (int index, double element) {
+    //if index is out of range return false
     if (index<0 || index>this.size) { return false; }
+    //starts pointer @ head
     Node current = head;
     int i = 0;
     if(index == 0) {
+      //if the list is empty,
+      //add to the end of the list
       if(isEmpty()) { insLast(element); return true; } 
       else {
+        //list not empty, inserting @ 0
         Node newNode = new NodeImpl(element, head);
         head = newNode;
         size++;
@@ -117,12 +157,14 @@ public class LinkedList implements List {
     }
     while(current != null) {
       if(i == (index - 1)) {
+        //go to the next node of current (which started @ head)
         Node temp = current.getNext();
         Node newNode = new NodeImpl(element, temp);
         current.setNext(newNode);
         size++;
         return true;
-      } 
+      }
+      //otherwise, move pointer to next value and see if new i relates to my index
       else { current=current.getNext(); i++; }
     }
     return true;

@@ -1,8 +1,35 @@
 package assn2;
 
 public class Tester {
-   
-   public void ins ( List ls ) {
+
+    public void set ( List ls ) {
+        System.out.println("== Test of set op ==========");
+        ls.clear();
+        ls.ins(0,3.0);
+        System.out.println(ls.set(0,10.0));
+        System.out.println(ls);
+        ls.set(0,11.1); ls.set(1,12.2);
+        System.out.println(ls);
+        System.out.println(ls.set(14,111.1));
+        System.out.println(ls.set(3,101.01));
+        System.out.println(ls);
+        return;
+    }
+double[] hello = {10.0, 12.2, 60, 111.1, 80};
+    public void bubbleIns ( List hello) {
+        System.out.println("== Test of bubbleIns op ==========");
+        hello.clear();
+        System.out.println(hello.bubbleIns(10.0));
+        System.out.println(hello);
+        hello.bubbleIns(11.1); hello.bubbleIns(12.2);
+        System.out.println(hello);
+        System.out.println(hello.bubbleIns(111.1));
+        System.out.println(hello.bubbleIns(101.01));
+        System.out.println(hello);
+        return;
+    }
+
+    public void ins ( List ls ) {
       System.out.println("== Test of ins op ==========");
       ls.clear();
       System.out.println(ls.ins(0,10.0)); 
@@ -71,6 +98,22 @@ public class Tester {
      System.out.println(ls.find(11.1));
      return;
    }
+
+    public void findLast (List ls) {
+        System.out.println("== Test of findLast op =========");
+        ls.clear();
+        System.out.println(ls.findLast(12.2));
+        ls.ins(0,11.1);
+        System.out.println(ls.findLast(11.1));
+        System.out.println(ls.findLast(12.2));
+        ls.ins(1,22.2); ls.ins(2,33.3); ls.ins(3,33.3);
+        System.out.println(ls.findLast(33.3));
+        System.out.println(ls.findLast(11.1));
+        System.out.println(ls.findLast(-5.5));
+        ls.clear();
+        System.out.println(ls.findLast(11.1));
+        return;
+    }
 
    public void isEmpty (List ls) {
       System.out.println("== Test of isEmpty op =======");

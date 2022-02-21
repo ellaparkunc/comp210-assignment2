@@ -3,7 +3,9 @@
 * 1. read through ins and rem
 * 2. read about set & code
 * 3. ask questions
-* 4. repeat*/
+* 4. repeat
+* 5. write testers
+* 6. ask q's*/
 
 package assn2;
 
@@ -154,48 +156,44 @@ public class ArrayList implements List {
    
   public boolean bubbleIns  ( double elt ) {
 
-    //See List.java for a description of the method's behavior and examples.
-    //Hint: Do any of the methods you're already given help?
+      //See List.java for a description of the method's behavior and examples.
+      //Hint: Do any of the methods you're already given help?
 
-    /*Your code here */
-    //find first: finds the first instance. if found,
-      //move item to index 0
+      /*Your code here */
+      //find first: finds the first instance. if found,
+      //remove item from list
+      //ins item @ index 0
       //move everything else down by one (ins)
 
-    //if not found,
+      //if not found,
       //put item at index 0
       //move everything down by one (ins)
 
 
       int location = -1;
       //from 0 to one less than size,
-      for (int i=0; i<size; i++) {
+      for (int i = 0; i < size; i++) {
           //when you come across the place in the list with the element,
           //set location equal to the index of that place
-          if (this.elts[i]==elt) {
-              //move everything down one (ins)
-              for (int j=this.size; j>=i; j--) {
-                  this.elts[j+1] = this.elts[j];
-              }
-              //move item to index 0
-              this.elts[0] = elt;
+          if (this.elts[i] == elt) {
+              //remove item from list
+              rem(i);
+              //move everything down one & ins @ line 0
+              ins(0, elt);
               return true;
-             }
-          else {
-              //do the exact same thing
-              //move everything down one
-              for (int j=0; j>=i; j--) {
-                  this.elts[j+1] = this.elts[j];
-              }
-              //move item to index 0
-              this.elts[0] = elt;
-              return true;
-               }
           }
-      return false;
+
       }
-
-
+      //no need for else statement here, bc if it goes through the loop w/o returning, elt isn't in there
+      //do the exact same thing
+      //move everything down one
+      ins(0, elt);
+      return true;
+      //how to write where it may return false???
+      //if (this.elts[0] != elt) {
+          //return false;
+      //}
+  }
       /* Another form of ins operation.  In this one, we look through the list
      to see if the element we want to add is already in the list.  If it is,
      we take the first occurrance of it and move that element to the head of

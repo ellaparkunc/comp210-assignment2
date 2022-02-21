@@ -9,10 +9,13 @@ public class Main {
 
       Tester tst = new Tester();
 
+      tst.bubbleIns(lst);
       tst.ins(lst); // tester object runs test of the ins op
+      tst.set(lst);
       tst.rem(lst); // etc.
       tst.get(lst);
       tst.find(lst);
+      tst.findLast(lst);
       tst.isEmpty(lst);
       tst.size(lst);
       tst.clear(lst);
