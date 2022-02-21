@@ -165,5 +165,16 @@ double[] hello = {10.0, 12.2, 60, 111.1, 80};
       System.out.println(ls.find(n));
       return;
    }
-
+    public void inSort (List ls) {
+        System.out.println("== Test of clear op =========");
+        System.out.println(ls.size());
+        double n = ls.get(0);
+        System.out.println(ls.find(n));
+        ls.clear();
+        System.out.println(ls.size());
+        System.out.println(ls.get(0));
+        System.out.println(ls.get(100));
+        System.out.println(ls.find(n));
+        return;
+    }
 }

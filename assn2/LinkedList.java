@@ -90,7 +90,7 @@ public class LinkedList implements List {
     //i want my question if code to run again for every next value
     //that's why outside of my question i go to the next current value till i get to the last one
     //then it may be giving me the extra
-    for (int j = 0; j < this.size; j++) {
+    for (int j = 0; j < this.size-1; j++) {
       //if the element is in between,
       if (current.getValue() < elt && current.getNext().getValue() >= elt) {
         //insert the node after the 'current' value
