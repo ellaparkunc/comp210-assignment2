@@ -47,7 +47,6 @@ public class ArrayList implements List {
       if (index<0 || index>size || index>=this.MAX) { return false; }
 
       this.elts[index] = element;
-      this.size++;
       return true;
 	  /* Make the value stored in list at position "index" be "element".
      This differs from ins in that we do not open up space for
