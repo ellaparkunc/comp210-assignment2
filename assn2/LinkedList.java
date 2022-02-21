@@ -78,8 +78,7 @@ public class LinkedList implements List {
       return true;
     }
     //start node at the beginning
-    Node current = head;
-    int index = -1;
+
     //iterate through the list
     //save j as min
     //save j+1 as max
@@ -87,6 +86,9 @@ public class LinkedList implements List {
     if (elt < head.getValue()) {
       ins(0, elt); return true;
     }
+
+    Node current = head;
+    int index = -1;
     //i want my question if code to run again for every next value
     //that's why outside of my question i go to the next current value till i get to the last one
     //then it may be giving me the extra
@@ -95,7 +97,7 @@ public class LinkedList implements List {
       if (current.getValue() < elt && current.getNext().getValue() >= elt) {
         //insert the node after the 'current' value
         //ins(j + 1, elt);
-        ins(j, elt);
+        ins(j+1, elt);
         return true;
       }
       current = current.getNext();
@@ -121,7 +123,7 @@ public class LinkedList implements List {
         rem(i);
         //move everything down one & ins @ line 0
         current = head;
-        current.setValue(elt);
+        ins(0, elt);
         return true;
       }
     }
