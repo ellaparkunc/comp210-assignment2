@@ -2,7 +2,8 @@
 1.  write versions of all the functions
   set *
   findLast *
-
+  inSort *
+  bubbleIns *
 2. troubleshoot
   set *
   findLast *
@@ -90,13 +91,13 @@ public class LinkedList implements List {
       if (current.getValue() >= elt && current.getNext().getValue() < elt) {
         //insert the node after the 'current' value
         //ins(j + 1, elt);
-        current.setValue(elt);
+        ins(j, elt);
         return true;
       }
       current = current.getNext();
     }
     if (current.getValue() > tail.getValue()) {
-      current.setValue(elt);
+      ins(this.size-1, elt);
       return true;
     }
     return false;  //Remove this when you implement the method!
@@ -105,9 +106,28 @@ public class LinkedList implements List {
   public boolean bubbleIns  ( double elt ) {
     //See List.java for a description of the method's behavior and examples.
     //Hint: Do any of the methods already provided to you help?
-
+    Node current = head;
+    int location = -1;
+    //from 0 to one less than size,
+    for (int i = 0; i < size; i++) {
+      //when you come across the place in the list with the element,
+      //set location equal to the index of that place
+      if (current.getValue() == elt) {
+        //remove item from list
+        rem(i);
+        //move everything down one & ins @ line 0
+        current = head;
+        current.setValue(elt);
+        return true;
+      }
+    }
+    //no need for else statement here, bc if it goes through the loop w/o returning, elt isn't in there
+    //do the exact same thing
+    //move everything down one
+    current = head;
+    current.setValue(elt);
+    return true;
     /*Your code here */
-    return false;  //Remove this when you implement the method!
   }
   
   /* Implementation given to you. Do not modify below this. */
