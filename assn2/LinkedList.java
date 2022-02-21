@@ -4,6 +4,8 @@
   findLast *
 
 2. troubleshoot
+  set *
+  findLast *
  */
 
 
@@ -70,6 +72,33 @@ public class LinkedList implements List {
     //See List.java for a description of the method's behavior and examples.
 
     /*Your code here */
+    //start node at the beginning
+    Node current = head;
+    int index = -1;
+    //iterate through the list
+    //save j as min
+    //save j+1 as max
+    //compare elt to both
+    if (current.getValue() <= head.getValue()) {
+      current.setValue(elt);
+    }
+    //i want my question if code to run again for every next value
+    //that's why outside of my question i go to the next current value till i get to the last one
+    //then it may be giving me the extra
+    for (int j = 0; j < this.size; j++) {
+      //if the element is in between,
+      if (current.getValue() >= elt && current.getNext().getValue() < elt) {
+        //insert the node after the 'current' value
+        //ins(j + 1, elt);
+        current.setValue(elt);
+        return true;
+      }
+      current = current.getNext();
+    }
+    if (current.getValue() > tail.getValue()) {
+      current.setValue(elt);
+      return true;
+    }
     return false;  //Remove this when you implement the method!
   }
    
