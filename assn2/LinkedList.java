@@ -118,7 +118,7 @@ public class LinkedList implements List {
 
     if (contains(elt)) {
       //remove element
-      for (int i = 0; i < this.size - 1; i++) {
+      for (int i = 0; i < this.size; i++) {
         //when you come across the place in the list with the element,
         //set location equal to the index of that place
         if (current.getValue() == elt) {
