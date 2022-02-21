@@ -88,7 +88,7 @@ public class LinkedList implements List {
     //then it may be giving me the extra
     for (int j = 0; j < this.size; j++) {
       //if the element is in between,
-      if (current.getValue() >= elt && current.getNext().getValue() < elt) {
+      if (current.getValue() < elt && current.getNext().getValue() >= elt) {
         //insert the node after the 'current' value
         //ins(j + 1, elt);
         ins(j, elt);
